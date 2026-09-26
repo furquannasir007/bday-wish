@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#140b16">
+  <meta name="description" content="A birthday surprise made with love for Aeram Shamim.">
+  <title>For Aeram Shamim — Happy Birthday ❤️</title>
+  <style>
+    :root{
+      --bg:#0d0710; --bg2:#1a0c18; --rose:#ff6f91; --rose2:#ffb1c3;
+      --cream:#fff7f2; --muted:#d9c7cf; --glass:rgba(255,255,255,.075);
+      --line:rgba(255,255,255,.14); --shadow:0 25px 70px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(circle at 15% 10%,rgba(255,111,145,.16),transparent 28%),
+      radial-gradient(circle at 85% 30%,rgba(255,177,195,.10),transparent 26%),
+      linear-gradient(160deg,var(--bg),var(--bg2) 55%,#100812);
+      color:var(--cream);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;
+      background-image:radial-gradient(#fff 1px,transparent 1px);background-size:26px 26px}
+    .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--rose),#fff,var(--rose));z-index:100;width:0}
+    .top{min-height:100vh;display:grid;place-items:center;padding:70px 20px 45px;position:relative}
+    .hero{width:min(980px,100%);text-align:center}
+    .eyebrow{letter-spacing:.35em;text-transform:uppercase;font:12px/1.6 Arial,sans-serif;color:var(--rose2);opacity:.9}
+    h1{font-size:clamp(52px,10vw,110px);line-height:.9;margin:20px 0 12px;font-weight:500;letter-spacing:-.045em}
+    .script{font-style:italic;color:var(--rose2)}
+    .subtitle{font:16px/1.8 Arial,sans-serif;color:var(--muted);max-width:650px;margin:0 auto 28px}
+    .open{border:1px solid rgba(255,177,195,.45);background:rgba(255,255,255,.08);color:#fff;
+      border-radius:999px;padding:15px 25px;font:600 14px Arial,sans-serif;cursor:pointer;
+      backdrop-filter:blur(12px);transition:.25s;box-shadow:0 10px 35px rgba(255,111,145,.12)}
+    .open:hover{transform:translateY(-3px);background:rgba(255,111,145,.16)}
+    .heart{font-size:26px;display:inline-block;animation:pulse 1.5s infinite}
+    @keyframes pulse{50%{transform:scale(1.18)}}
+    .hint{margin-top:45px;font:11px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#a9959e}
+    .top.opened{min-height:72vh;transition:min-height .9s ease,opacity .9s ease,transform .9s ease}
+    .top.opened .hero{opacity:.12;transform:scale(.97);transition:.9s ease}
+    #surprise{display:none}
+    #surprise.unlocked{display:block;animation:revealStory 1s ease both}
+    @keyframes revealStory{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}
+    .story-nav{position:sticky;top:10px;z-index:20;width:min(900px,calc(100% - 36px));margin:-18px auto 0;
+      padding:10px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(18,8,17,.72);
+      backdrop-filter:blur(16px);display:none;justify-content:center;gap:8px;flex-wrap:wrap}
+    .story-nav.visible{display:flex}
+    .story-nav a{color:#f7dce4;text-decoration:none;font:11px Arial,sans-serif;padding:8px 12px;border-radius:999px}
+    .story-nav a:hover{background:rgba(255,111,145,.14)}
+    .music-control{position:fixed;right:18px;bottom:18px;z-index:80;display:none;align-items:center;gap:8px;
+      border:1px solid var(--line);background:rgba(18,8,17,.78);color:#fff;border-radius:999px;padding:9px 13px;
+      backdrop-filter:blur(14px);font:11px Arial,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .music-control.visible{display:flex}
+    .music-control button{border:0;background:transparent;color:#fff;cursor:pointer;font-size:17px;padding:0}
+    .music-label{letter-spacing:.08em;text-transform:uppercase;color:#d9c7cf}
+    .section{width:min(1080px,calc(100% - 36px));margin:0 auto;padding:90px 0}
+    .section-title{text-align:center;margin-bottom:42px}
+    .section-title span{display:block;color:var(--rose2);font:11px Arial,sans-serif;letter-spacing:.25em;text-transform:uppercase;margin-bottom:10px}
+    .section-title h2{font-size:clamp(34px,5vw,58px);font-weight:500;margin:0}
+    .letter{background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+      border:1px solid var(--line);border-radius:30px;padding:clamp(28px,5vw,58px);box-shadow:var(--shadow);
+      backdrop-filter:blur(18px)}
+    .letter p{font-size:clamp(17px,2vw,21px);line-height:1.95;color:#f4e8eb;margin:0 0 22px}
+    .letter p:last-child{margin-bottom:0}
+    .quote{text-align:center;padding:45px 20px;color:var(--rose2);font-size:clamp(25px,4vw,42px);line-height:1.45;font-style:italic}
+    .quote small{display:block;color:#a9959e;font:11px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;margin-top:18px;font-style:normal}
+    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .photo{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:#160d16;min-height:230px}
+    .photo:nth-child(1){grid-column:span 7;grid-row:span 2}.photo:nth-child(2){grid-column:span 5}
+    .photo:nth-child(3){grid-column:span 5}.photo:nth-child(4){grid-column:span 7}
+    .photo:nth-child(5){grid-column:span 4}.photo:nth-child(6){grid-column:span 4}.photo:nth-child(7){grid-column:span 4}
+    .photo:nth-child(8){grid-column:span 6}.photo:nth-child(9){grid-column:span 6}
+    .photo:nth-child(10){grid-column:span 4}.photo:nth-child(11){grid-column:span 4}.photo:nth-child(12){grid-column:span 4}
+    .photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .7s ease,filter .7s ease}
+    .photo:hover img{transform:scale(1.045);filter:saturate(1.08)}
+    .caption{position:absolute;left:14px;bottom:14px;background:rgba(10,5,10,.55);padding:8px 11px;border-radius:999px;
+      font:11px Arial,sans-serif;backdrop-filter:blur(8px);color:#fff}
+    .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .reason{padding:28px;border:1px solid var(--line);border-radius:24px;background:var(--glass)}
+    .reason b{display:block;color:var(--rose2);font-size:28px;margin-bottom:15px}
+    .reason h3{font-size:22px;font-weight:500;margin:0 0 10px}.reason p{font:14px/1.8 Arial,sans-serif;color:var(--muted);margin:0}
+    .ending{text-align:center;padding:110px 20px 130px}
+    .ending h2{font-size:clamp(48px,9vw,100px);line-height:.95;font-weight:500;margin:10px auto 20px;max-width:900px}
+    .ending p{font:15px/1.8 Arial,sans-serif;color:var(--muted);max-width:600px;margin:auto}
+    .signature{margin-top:30px;color:var(--rose2);font-size:25px;font-style:italic}
+    footer{text-align:center;padding:25px;font:11px Arial,sans-serif;color:#88747e;letter-spacing:.12em}
+    .hidden{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+    .show{opacity:1;transform:none}
+    .float{position:fixed;bottom:-30px;left:0;color:rgba(255,177,195,.55);font-size:18px;pointer-events:none;animation:floatUp 6s linear forwards;z-index:50}
+    @keyframes floatUp{to{transform:translateY(-110vh) translateX(var(--drift));opacity:0}}
+    @media(max-width:760px){
+      .section{padding:65px 0}.gallery{grid-template-columns:1fr 1fr}
+      .photo,.photo:nth-child(n){grid-column:span 1;grid-row:span 1;min-height:240px}
+      .photo:nth-child(1),.photo:nth-child(4){grid-column:span 2;min-height:330px}
+      .reasons{grid-template-columns:1fr}
+      h1{font-size:clamp(52px,17vw,82px)}
+    }
+  </style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<section class="top" id="top">
+  <div class="hero">
+    <div class="eyebrow">A little something, made only for you</div>
+    <h1>Happy Birthday,<br><span class="script">Aeram Shamim</span> <span class="heart">♡</span></h1>
+    <p class="subtitle">Some people make life beautiful simply by being in it. You are that person for me.</p>
+    <button class="open" id="openBtn">Open your surprise&nbsp; ✨</button>
+    <div class="hint">click once • your surprise will open</div>
+  </div>
+</section>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="audio/ve-haaniyaan.mpeg" type="audio/mpeg">
+</audio>
+<div class="music-control" id="musicControl">
+  <button id="musicBtn" aria-label="Pause background music">♫</button>
+  <span class="music-label">soft music</span>
+</div>
+
+<main id="surprise">
+  <nav class="story-nav" id="storyNav" aria-label="Birthday surprise sections">
+    <a href="#letter">Letter</a>
+    <a href="#memories">Memories</a>
+    <a href="#reasons">Why You</a>
+    <a href="#ending">Birthday Wish</a>
+  </nav>
+  <section class="section hidden" id="letter">
+    <div class="section-title"><span>A letter for you</span><h2>To the girl who makes my world softer</h2></div>
+    <div class="letter">
+      <p>Dear Aeram Shamim,</p>
+      <p>Today is not just another date on the calendar. It is the day Allah chose to bring you into this world — and somehow, years later, He brought you into mine too. I don't think I will ever have enough words to explain how special that feels to me.</p>
+      <p>You have this beautiful way of making ordinary moments feel important. Your smile, your voice, the way you talk, the little things you do without even realizing them — they all have a place in my heart. When I talk to you, even a normal day feels a little less ordinary.</p>
+      <p>I know that today I cannot be beside you the way I wish I could. And honestly, that distance hurts a little more on a day like this. Kaash aaj main aapke paas hota, aapke saamne baithta, aapko birthday wish karta, aur aapke chehre ki woh smile apni aankhon se dekhta.</p>
+      <p>But until the day distance becomes a story we tell about the past, I want you to know this: no matter how many kilometres are between us, you are never far from my heart.</p>
+      <p>May Allah fill your life with happiness, protect you from every bad thing and every bad person, give you success in everything you work for, and keep your heart peaceful. <b>Aameen summa aameen.</b></p>
+      <p>And if I could make one birthday wish for myself, it would simply be this — that I get to celebrate many, many more of your birthdays with you.</p>
+      <p>Happy Birthday, my love. ❤️</p>
+    </div>
+  </section>
+
+  <section class="section hidden">
+    <div class="quote">
+      “Faasle sirf raaston ke hote hain,<br>mohabbat ke nahi…<br>tum jitni door ho, dil ke utni hi paas ho.”
+      <small>— for Aeram</small>
+    </div>
+  </section>
+
+  <section class="section hidden" id="memories">
+    <div class="section-title"><span>Our little memories</span><h2>Moments I want to keep forever</h2></div>
+    <div class="gallery">
+      <figure class="photo"><img src="images/memory-01.png" alt="A memory together"><span class="caption">One of my favourite views</span></figure>
+      <figure class="photo"><img src="images/memory-02.png" alt="Aeram"><span class="caption">That smile ❤️</span></figure>
+      <figure class="photo"><img src="images/memory-03.jpeg" alt="Aeram"><span class="caption">Beautiful, always</span></figure>
+      <figure class="photo"><img src="images/memory-04.jpeg" alt="A memory together"><span class="caption">Us, in our little world</span></figure>
+      <figure class="photo"><img src="images/memory-05.jpeg" alt="A memory together"><span class="caption">A moment to remember</span></figure>
+      <figure class="photo"><img src="images/memory-06.jpeg" alt="A memory together"><span class="caption">The little things</span></figure>
+      <figure class="photo"><img src="images/memory-07.jpeg" alt="A memory together"><span class="caption">Always you</span></figure>
+      <figure class="photo"><img src="images/memory-08.jpeg" alt="Aeram"><span class="caption">My favourite person</span></figure>
+      <figure class="photo"><img src="images/memory-09.jpeg" alt="Aeram"><span class="caption">A beautiful soul</span></figure>
+      <figure class="photo"><img src="images/memory-10.jpeg" alt="A memory together"><span class="caption">My day ❤️</span></figure>
+      <figure class="photo"><img src="images/memory-11.jpeg" alt="Aeram"><span class="caption">Simply you</span></figure>
+      <figure class="photo"><img src="images/memory-12.jpeg" alt="Aeram"><span class="caption">Forever grateful</span></figure>
+    </div>
+  </section>
+
+  <section class="section hidden" id="reasons">
+    <div class="section-title"><span>Why you matter to me</span><h2>There are a thousand reasons</h2></div>
+    <div class="reasons">
+      <article class="reason"><b>01</b><h3>Your presence</h3><p>Somehow, just knowing you're there makes difficult days feel a little easier and good days feel even better.</p></article>
+      <article class="reason"><b>02</b><h3>Your heart</h3><p>The kindness, warmth and care you carry with you are things I notice more than I can ever properly say.</p></article>
+      <article class="reason"><b>03</b><h3>Our moments</h3><p>Every conversation, every laugh and every quiet moment with you has become a small piece of my favourite story.</p></article>
+    </div>
+  </section>
+
+  <section class="section hidden">
+    <div class="quote">
+      “Tum meri zindagi ka woh khoobsurat hissa ho,<br>
+      jise main kabhi khatam nahi hone dena chahta.”
+      <small>— with all my heart</small>
+    </div>
+  </section>
+
+  <section class="ending hidden" id="ending">
+    <div class="eyebrow">One last thing…</div>
+    <h2>Happy Birthday,<br><span class="script">my love.</span> ❤️</h2>
+    <p>Today, tomorrow, and on all the ordinary days in between — I hope you always remember how loved, valued and special you are.</p>
+    <div class="signature">Always yours, with love ♡</div>
+  </section>
+</main>
+
+<footer>made with love • for Aeram Shamim • birthday surprise</footer>
+
+<script>
+  const openBtn = document.getElementById('openBtn');
+  openBtn.addEventListener('click', () => {
+    const top = document.getElementById('top');
+    const surprise = document.getElementById('surprise');
+    const nav = document.getElementById('storyNav');
+
+    // Unlock the complete scrollable birthday story.
+    surprise.classList.add('unlocked');
+    top.classList.add('opened');
+    nav.classList.add('visible');
+    openBtn.textContent = 'Your surprise is open ❤️';
+
+    // Start the soft original instrumental after the user's click.
+    const music = document.getElementById('bgMusic');
+    const musicControl = document.getElementById('musicControl');
+    const musicBtn = document.getElementById('musicBtn');
+    music.volume = 0.22;
+    music.play().then(() => musicControl.classList.add('visible')).catch(() => {});
+    musicBtn.onclick = () => {
+      if (music.paused) {
+        music.play();
+        musicBtn.textContent = '♫';
+        musicBtn.setAttribute('aria-label', 'Pause background music');
+      } else {
+        music.pause();
+        musicBtn.textContent = '▶';
+        musicBtn.setAttribute('aria-label', 'Play background music');
+      }
+    };
+
+    // Start the story immediately after the opening screen.
+    setTimeout(() => {
+      document.getElementById('letter').scrollIntoView({behavior:'smooth', block:'start'});
+    }, 250);
+
+    // Celebration hearts
+    for(let i=0;i<28;i++){
+      setTimeout(()=>{
+        const el=document.createElement('span');
+        el.className='float'; el.textContent=['♡','♥','✦','✨'][Math.floor(Math.random()*4)];
+        el.style.left=(5+Math.random()*90)+'vw';
+        el.style.setProperty('--drift',(Math.random()*180-90)+'px');
+        el.style.animationDuration=(4+Math.random()*3)+'s';
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(),7500);
+      },i*55);
+    }
+  });
+
+  const items = document.querySelectorAll('.hidden');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+  },{threshold:.12});
+  items.forEach(x=>io.observe(x));
+
+  window.addEventListener('scroll',()=>{
+    const h=document.documentElement;
+    const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+    document.getElementById('progress').style.width=pct+'%';
+  });
+</script>
+</body>
+</html>
